@@ -57,30 +57,30 @@ public class MainActivity extends AppCompatActivity {
 
         if (pressure != null) {
             textPressure.setText("Sensor tekanan ada");
-            //            sensorManager.registerListener(
-//                    PressureSensorListener,
-//                    pressure,
-//                    SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(
+                    PressureSensorListener,
+                    pressure,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             textPressure.setText("Sensor tekanan tidak ada");
         }
 
         if (lightIntentsity != null) {
             textLight.setText("Sensor cahaya ada");
-            //            sensorManager.registerListener(
-//                    LightIntensitySensorListener,
-//                    lightIntentsity,
-//                    SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(
+                    LightIntensitySensorListener,
+                    lightIntentsity,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             textLight.setText("Sensor cahaya tidak ada");
         }
 
         if (proximity != null) {
             textProximity.setText("Sensor jarak ada");
-            //            sensorManager.registerListener(
-//                    ProximitySensorListener,
-//                    proximity,
-//                    SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(
+                    ProximitySensorListener,
+                    proximity,
+                    SensorManager.SENSOR_DELAY_NORMAL);
         } else {
             textProximity.setText("Sensor jarak tidak ada");
         }
@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
     private void unregisterAllSensor() {
         sensorManager.unregisterListener(AmbientTemperatureSensorListener);
         sensorManager.unregisterListener(HumiditySensorListener);
-//        sensorManager.unregisterListener(PressureSensorListener);
-//        sensorManager.unregisterListener(LightIntensitySensorListener);
-//        sensorManager.unregisterListener(ProximitySensorListener);
+        sensorManager.unregisterListener(PressureSensorListener);
+        sensorManager.unregisterListener(LightIntensitySensorListener);
+        sensorManager.unregisterListener(ProximitySensorListener);
     }
 
     @Override
@@ -137,8 +137,36 @@ public class MainActivity extends AppCompatActivity {
     private final SensorEventListener PressureSensorListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
-            if (event.sensor.getType() == Sensor.TYPE_PRESSURE){
-                textPressure.setText("");
+            if (event.sensor.getType() == Sensor.TYPE_PRESSURE) {
+                textPressure.setText("Tekanan: " + event.values[0] + " hPa");
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+
+    private final SensorEventListener LightIntensitySensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+                textLight.setText("Intensitas cahaya: " + event.values[0] + " lux");
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
+
+    private final SensorEventListener ProximitySensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                textProximity.setText("Proximity Sensor: " + event.values[0]);
             }
         }
 
