@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/AMBIENT_TEMPERATURE_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_main"
+        android:text="Sensor Temperature"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/HUMIDITY_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AMBIENT_TEMPERATURE_reading"
+        android:layout_alignLeft="@id/AMBIENT_TEMPERATURE_reading"
+        android:layout_alignParentRight="true"
+        android:text="Sensor Humidity"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/PRESSURE_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HUMIDITY_reading"
+        android:layout_alignLeft="@id/HUMIDITY_reading"
+        android:layout_alignParentRight="true"
+        android:text="Sensor Tekanan"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/LIGHT_INT_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PRESSURE_reading"
+        android:layout_alignLeft="@id/PRESSURE_reading"
+        android:layout_alignParentRight="true"
+        android:text="Sensor Intensitas Cahaya"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/PROXIMITY_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LIGHT_INT_reading"
+        android:layout_alignLeft="@id/LIGHT_INT_reading"
+        android:layout_alignParentRight="true"
+        android:text="Sensor Proximity"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
